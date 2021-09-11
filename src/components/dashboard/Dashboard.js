@@ -1,14 +1,17 @@
 import React, { Component } from "react"
 import Notification from "./Notification"
-import ProjectList from "../projects/ProjectList"
+import SubjectList from "../subjects/SubjectList"
+import { connect } from "react-redux"
 
 class Dashboard extends Component {
   render(){
+    const {subjects } = this.props
+
     return(
       <div className="dashboard container">
         <div className="row">
           <div className="col s12 m6">
-            <ProjectList />
+            <SubjectList subjects={subjects}/>
           </div>
           <div className="col s12 m5 offset-m1">
             <Notification />
@@ -19,4 +22,9 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    subjects: state.subject.subjects
+  }
+}
+export default connect(mapStateToProps)(Dashboard);

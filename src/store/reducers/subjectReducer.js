@@ -6,6 +6,10 @@ const initState = {
   ]
 }
 const subjectReducer = (state = initState, action) => {
+  switch (action.type) {
+    case "CREATE_SUBJECT":
+      console.log("created subject", action.subject)
+  }
   return state
 } 
 

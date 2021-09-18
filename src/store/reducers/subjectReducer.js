@@ -8,9 +8,14 @@ const initState = {
 const subjectReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE_SUBJECT":
-      console.log("created subject", action.subject)
+      console.log("created subject", action.subject);
+      return state;
+    case "CREATE_SUBJECT_ERROR":
+      console.log("create subject error", action.err);
+      return state;
+    default:
+      return state;
   }
-  return state
 } 
 
 export default subjectReducer

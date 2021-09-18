@@ -1,5 +1,5 @@
 const initState = {
-  suthEwwor: null
+  authError: null
 }
 const authReducer = (state = initState, action) => {
   switch(action.type) {
@@ -18,6 +18,18 @@ const authReducer = (state = initState, action) => {
     case "SIGNOUT_SUCCESS":
       console.log("signout success");
       return state;
+    case "SIGNUP_SUCCESS":
+      console.log("signup success");
+      return {
+        ...state,
+        authError: null
+      }
+    case "SIGNUP_ERROR":
+      console.log("signup failed")
+      return {
+        ...state,
+        authError: action.err.message
+      }
     default:
       return state;
   }

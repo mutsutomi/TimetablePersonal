@@ -4,10 +4,12 @@ import SubjectList from "../subjects/SubjectList"
 import { connect } from "react-redux"
 import { firestoreConnect } from "react-redux-firebase"
 import { compose } from "redux"
+import { Redirect } from "react-router-dom"
 
 class Dashboard extends Component {
   render(){
-    const {subjects } = this.props
+    const { subjects, auth } = this.props;
+    if (!auth.uid) return <Redirect to="/signin" />
 
     return(
       <div className="dashboard container">
@@ -27,7 +29,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    subjects: state.firestore.ordered.subjects
+    subjects: state.firestore.ordered.subjects,
+    auth: state.firebase.auth
   }
 }
 

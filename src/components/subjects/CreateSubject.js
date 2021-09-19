@@ -16,6 +16,7 @@ class CreateSubject extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.createSubject(this.state)
+    this.props.history.push("/")
   }
   render() {
     const { auth } = this.props;

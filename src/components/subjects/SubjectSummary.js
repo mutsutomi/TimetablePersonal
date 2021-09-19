@@ -5,7 +5,7 @@ const SubjectSummary = ({subject}) => {
     <div className="card z-depth-0 subject-summary">
       <div className="card-content grey-text text-darken-3">
         <span className="card-title">{subject.title}</span>
-        <p>Posted by Mutsumi Tomiki</p>
+        <p>Posted by the {subject.studentFirstName} {subject.studentLastName}</p>
         <p className="grey-text">3rd September</p>
       </div>
     </div>
